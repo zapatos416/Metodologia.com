@@ -1163,30 +1163,12 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-function runMonumentValleyIntro() {
-    const splash = document.getElementById('mvSplash');
-    if (!splash) return;
-
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const holdDuration = prefersReduced ? 250 : 1850;
-    const fadeDuration = prefersReduced ? 200 : 950;
-
-    document.body.style.overflow = 'hidden';
-
-    requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-            splash.classList.add('is-active');
-        });
-    });
-
+// Limpieza limpia del splash una vez que termina su animación CSS (1.9s delay + 0.9s fade)
+const splashEl = document.getElementById('mvSplash');
+if (splashEl) {
     setTimeout(() => {
-        splash.classList.add('is-leaving');
-        document.body.style.overflow = 'auto';
-
-        setTimeout(() => {
-            splash.remove();
-        }, fadeDuration);
-    }, holdDuration);
+        splashEl.classList.add('is-done');
+    }, 2900);
 }
 
 const bgMusic = document.getElementById('bgMusic');
@@ -1230,6 +1212,5 @@ function startMusicAutomatically() {
 }
 
 renderCards();
-runMonumentValleyIntro();
 startMusicAutomatically();
 document.addEventListener('click', startMusicAutomatically, { once: true });
