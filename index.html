@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="/style.css">
+  </head>
+
+  <body>
+    <!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- FontAwesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- Google Fonts: Montserrat & Quicksand -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Elementos geométricos ambientales -->
+<div class="geo-bg-circle"></div>
+<div class="geo-bg-diamond"></div>
+
+<!-- Audio de fondo en bucle continuo -->
+<audio id="bgMusic" src="musica.mp3" loop preload="auto"></audio>
+
+<!-- Control flotante minimalista de música -->
+<div class="fixed bottom-6 right-6 z-40 flex items-center gap-3 bg-mvNight/85 backdrop-blur-md text-mvCream px-4 py-2.5 rounded-full shadow-2xl border border-white/15">
+    <button id="musicToggleBtn" onclick="toggleMusic()" class="w-8 h-8 rounded-full bg-mvRose/20 hover:bg-mvRose text-mvPeach hover:text-mvNight flex items-center justify-center transition duration-300" title="Reproducir / Pausar música ambiental">
+        <i id="musicIcon" class="fa-solid fa-play text-xs"></i>
+    </button>
+    <div class="text-xs pr-2">
+        <p class="font-display uppercase tracking-widest text-[10px] text-mvMint">Ambiente Sonoro</p>
+        <p id="musicStatus" class="text-white/80 font-medium">Clic para activar música</p>
+    </div>
+</div>
+
+<!-- Encabezado Minimalista -->
+<header class="relative z-10 pt-14 pb-10 px-6 text-center max-w-4xl mx-auto">
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-mvPeach text-xs font-display uppercase tracking-[0.2em] mb-6">
+        <span>Universidad del Sur</span>
+        <span>•</span>
+        <span>Metodología de la Investigación</span>
+    </div>
+    <h1 class="text-2xl sm:text-4xl font-light text-white uppercase tracking-[0.18em] leading-relaxed drop-shadow-sm">
+        Apoyo Comunitario y <span class="font-semibold text-mvPeach">Ayuda Mutua Digital</span>
+    </h1>
+    <div class="w-16 h-[1px] bg-mvMint/70 mx-auto my-6"></div>
+    <p class="text-white/80 text-sm sm:text-base font-light max-w-2xl mx-auto leading-relaxed">
+        Explora cada bloque arquitectónico de la investigación haciendo clic sobre las tarjetas para desplegar su contenido completo.
+    </p>
+</header>
+
+<!-- Contenedor Principal de Cuadritos -->
+<main class="relative z-10 max-w-6xl mx-auto px-6 pb-24">
+    <div id="cardsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
+        <!-- Las tarjetas se inyectan dinámicamente -->
+    </div>
+</main>
+
+<!-- Modal / Pestaña Emergente de Contenido Enriquecida -->
+<div id="detailModal" class="fixed inset-0 bg-mvNight/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4 sm:p-6 overflow-y-auto" onclick="closeModalOnBackdrop(event)">
+    <div id="modalBox" class="bg-gradient-to-b from-white via-[#faf7f5] to-[#f4eef8] rounded-3xl shadow-2xl max-w-4xl w-full max-h-[88vh] overflow-y-auto transform transition-all duration-300 scale-95 opacity-0 border border-white/70 relative">
+        
+        <!-- Franja superior decorativa dinámica -->
+        <div id="modalTopBar" class="h-2.5 w-full bg-gradient-to-r from-mvNight via-mvRose to-mvMint"></div>
+
+        <!-- Cabecera del Modal Colorida y Arquitectónica -->
+        <div id="modalHeader" class="sticky top-0 bg-white/90 backdrop-blur-lg px-6 sm:px-10 py-5 border-b border-purple-100 flex items-center justify-between z-20 overflow-hidden">
+            <div id="modalHeaderGlow" class="absolute -right-10 -top-10 w-40 h-40 rounded-full opacity-20 pointer-events-none blur-xl bg-mvRose"></div>
+            
+            <div class="flex items-center gap-4 relative z-10">
+                <div id="modalHeaderIconBox" class="hidden sm:flex w-12 h-12 rounded-2xl bg-gradient-to-br from-mvTwilight to-mvNight text-white items-center justify-center shadow-md shrink-0">
+                    <i id="modalHeaderIcon" class="fa-solid fa-compass text-lg"></i>
+                </div>
+                <div>
+                    <div class="flex flex-wrap items-center gap-2 mb-1.5">
+                        <span id="modalSubtitle" class="text-[10px] font-display uppercase tracking-[0.18em] px-3 py-0.5 rounded-full font-bold bg-mvTwilight/10 text-mvTwilight"></span>
+                        <span id="modalCounter" class="text-[10px] font-display uppercase tracking-widest text-gray-400 font-semibold"></span>
+                    </div>
+                    <h2 id="modalTitle" class="text-base sm:text-xl font-bold text-mvNight tracking-wider uppercase leading-snug"></h2>
+                </div>
+            </div>
+
+            <button onclick="closeModal()" class="relative z-10 w-10 h-10 rounded-full bg-mvNight/5 hover:bg-gradient-to-br hover:from-mvRose hover:to-mvCoral hover:text-white text-mvNight flex items-center justify-center transition duration-300 shrink-0 ml-4 shadow-sm" aria-label="Cerrar ventana">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+        </div>
+
+        <!-- Cuerpo del Modal -->
+        <div id="modalBody" class="px-6 sm:px-10 py-8 text-gray-700 leading-relaxed space-y-5 text-base relative">
+            <!-- Contenido inyectado por JS -->
+        </div>
+
+        <!-- Pie del Modal -->
+        <div class="px-6 sm:px-10 py-4 bg-white/80 backdrop-blur-md border-t border-purple-100/80 flex justify-between items-center">
+            <button onclick="navigateModal(-1)" id="prevBtn" class="px-4 py-2 rounded-full bg-mvTwilight/5 hover:bg-mvTwilight hover:text-white text-xs font-display uppercase tracking-widest text-mvTwilight font-semibold flex items-center gap-2 transition duration-300">
+                <i class="fa-solid fa-arrow-left"></i> Anterior
+            </button>
+            <button onclick="closeModal()" class="px-7 py-2.5 rounded-full bg-gradient-to-r from-mvNight via-mvTwilight to-mvIndigo text-white text-xs font-display uppercase tracking-widest hover:shadow-lg hover:scale-105 transition duration-300 shadow-md">
+                Cerrar
+            </button>
+            <button onclick="navigateModal(1)" id="nextBtn" class="px-4 py-2 rounded-full bg-mvTwilight/5 hover:bg-mvTwilight hover:text-white text-xs font-display uppercase tracking-widest text-mvTwilight font-semibold flex items-center gap-2 transition duration-300">
+                Siguiente <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Pie de página minimalista -->
+<footer class="relative z-10 text-center py-8 text-white/60 text-xs font-display tracking-widest uppercase border-t border-white/10">
+    Universidad del Sur • Licenciatura en Ciencias de la Comunicación y Periodismo
+</footer>
+    <script src="/script.js"></script>
+  </body>
+
+</html>
