@@ -15,6 +15,20 @@
 </head>
 <body class="antialiased relative selection:bg-mvRose selection:text-mvNight">
 
+    <!-- Pantalla de entrada estilo Monument Valley -->
+    <div id="mvSplash" class="mv-splash" aria-hidden="true">
+        <div class="mv-splash-inner">
+            <div class="mv-splash-emblem">
+                <span class="mv-splash-diamond"></span>
+                <span class="mv-splash-ring"></span>
+            </div>
+            <p class="mv-splash-eyebrow">Universidad del Sur</p>
+            <h2 class="mv-splash-title">Ciencias de la Comunicación</h2>
+            <div class="mv-splash-line"></div>
+            <p class="mv-splash-sub">Metodología de la Investigación</p>
+        </div>
+    </div>
+
     <!-- Elementos geométricos ambientales -->
     <div class="geo-bg-circle"></div>
     <div class="geo-bg-diamond"></div>
@@ -59,14 +73,14 @@
     <!-- Modal / Pestaña Emergente de Contenido Enriquecida -->
     <div id="detailModal" class="fixed inset-0 bg-mvNight/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4 sm:p-6 overflow-y-auto" onclick="closeModalOnBackdrop(event)">
         <div id="modalBox" class="bg-gradient-to-b from-white via-[#faf7f5] to-[#f4eef8] rounded-3xl shadow-2xl max-w-4xl w-full max-h-[88vh] overflow-y-auto transform transition-all duration-300 scale-95 opacity-0 border border-white/70 relative">
-            
+
             <!-- Franja superior decorativa dinámica -->
             <div id="modalTopBar" class="h-2.5 w-full bg-gradient-to-r from-mvNight via-mvRose to-mvMint"></div>
 
             <!-- Cabecera del Modal Colorida y Arquitectónica -->
             <div id="modalHeader" class="sticky top-0 bg-white/90 backdrop-blur-lg px-6 sm:px-10 py-5 border-b border-purple-100 flex items-center justify-between z-20 overflow-hidden">
                 <div id="modalHeaderGlow" class="absolute -right-10 -top-10 w-40 h-40 rounded-full opacity-20 pointer-events-none blur-xl bg-mvRose"></div>
-                
+
                 <div class="flex items-center gap-4 relative z-10">
                     <div id="modalHeaderIconBox" class="hidden sm:flex w-12 h-12 rounded-2xl bg-gradient-to-br from-mvTwilight to-mvNight text-white items-center justify-center shadow-md shrink-0">
                         <i id="modalHeaderIcon" class="fa-solid fa-compass text-lg"></i>
