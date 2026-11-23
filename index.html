@@ -15,7 +15,6 @@
 </head>
 <body class="antialiased relative selection:bg-mvRose selection:text-mvNight">
 
-    
     <div id="mvSplash" class="mv-splash" aria-hidden="true">
         <div class="mv-splash-inner">
             <div class="mv-splash-emblem">
@@ -29,14 +28,11 @@
         </div>
     </div>
 
-    
     <div class="geo-bg-circle"></div>
     <div class="geo-bg-diamond"></div>
 
-    
     <audio id="bgMusic" src="Spires_of_Silent_Stone.mp3" loop preload="auto"></audio>
 
-    
     <div class="fixed bottom-6 right-6 z-40 flex items-center gap-3 bg-mvNight/85 backdrop-blur-md text-mvCream px-4 py-2.5 rounded-full shadow-2xl border border-white/15">
         <button id="musicToggleBtn" onclick="toggleMusic()" class="w-8 h-8 rounded-full bg-mvRose/20 hover:bg-mvRose text-mvPeach hover:text-mvNight flex items-center justify-center transition duration-300" title="Reproducir / Pausar música ambiental">
             <i id="musicIcon" class="fa-solid fa-play text-xs"></i>
@@ -47,7 +43,6 @@
         </div>
     </div>
 
-    
     <header class="relative z-10 pt-14 pb-10 px-6 text-center max-w-4xl mx-auto">
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-mvPeach text-xs font-display uppercase tracking-[0.2em] mb-6">
             <span>Universidad del Sur</span>
@@ -63,21 +58,15 @@
         </p>
     </header>
 
-    
     <main class="relative z-10 max-w-6xl mx-auto px-6 pb-24">
-        <div id="cardsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
-            
-        </div>
+        <div id="cardsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7"></div>
     </main>
 
-    
     <div id="detailModal" class="fixed inset-0 bg-mvNight/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4 sm:p-6 overflow-y-auto" onclick="closeModalOnBackdrop(event)">
         <div id="modalBox" class="bg-gradient-to-b from-white via-[#faf7f5] to-[#f4eef8] rounded-3xl shadow-2xl max-w-4xl w-full max-h-[88vh] overflow-y-auto transform transition-all duration-300 scale-95 opacity-0 border border-white/70 relative">
 
-            
             <div id="modalTopBar" class="h-2.5 w-full bg-gradient-to-r from-mvNight via-mvRose to-mvMint"></div>
 
-            
             <div id="modalHeader" class="sticky top-0 bg-white/90 backdrop-blur-lg px-6 sm:px-10 py-5 border-b border-purple-100 flex items-center justify-between z-20 overflow-hidden">
                 <div id="modalHeaderGlow" class="absolute -right-10 -top-10 w-40 h-40 rounded-full opacity-20 pointer-events-none blur-xl bg-mvRose"></div>
 
@@ -99,12 +88,10 @@
                 </button>
             </div>
 
-            
             <div id="modalBody" class="px-6 sm:px-10 py-8 text-gray-700 leading-relaxed space-y-5 text-base relative">
                 <!-- Contenido inyectado por JS -->
             </div>
 
-            
             <div class="px-6 sm:px-10 py-4 bg-white/80 backdrop-blur-md border-t border-purple-100/80 flex justify-between items-center">
                 <button onclick="navigateModal(-1)" id="prevBtn" class="px-4 py-2 rounded-full bg-mvTwilight/5 hover:bg-mvTwilight hover:text-white text-xs font-display uppercase tracking-widest text-mvTwilight font-semibold flex items-center gap-2 transition duration-300">
                     <i class="fa-solid fa-arrow-left"></i> Anterior
@@ -119,12 +106,10 @@
         </div>
     </div>
 
-    
     <footer class="relative z-10 text-center py-8 text-white/60 text-xs font-display tracking-widest uppercase border-t border-white/10">
         Universidad del Sur • Licenciatura en Ciencias de la Comunicación 
     </footer>
 
-    
     <script src="script.js"></script>
 </body>
 </html>
