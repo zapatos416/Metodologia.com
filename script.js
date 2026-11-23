@@ -497,7 +497,7 @@ const sectionsData = [
             </div>
 
             <p>Para comprender la dinámica mediante la cual los ciudadanos comunes logran difundir convocatorias de ayuda sin la mediación de los medios de comunicación tradicionales, resulta imprescindible acudir al marco teórico de la <strong>autocomunicación de masas</strong> propuesto por <strong>Manuel Castells (2009)</strong>.</p>
-            
+
             <blockquote class="bg-purple-50/90 border-l-4 border-purple-600 p-4 rounded-r-2xl text-purple-950 font-medium">
                 En su obra <em>Comunicación y poder</em>, Castells define la autocomunicación de masas como una forma de comunicación donde el mensaje es producido autónomamente por el emisor, orientado a una audiencia potencialmente global en la red, y cuya recepción es auto-seleccionada por los propios usuarios.
             </blockquote>
@@ -526,7 +526,7 @@ const sectionsData = [
             </div>
 
             <p>La rápida conversión de una publicación digital en acciones concretas dentro del entorno físico no puede explicarse únicamente por el funcionamiento técnico del algoritmo de Facebook, sino por la existencia previa y la revitalización del capital social. <strong>Robert D. Putnam (2000)</strong>, en <em>Bowling Alone: The Collapse and Revival of American Community</em>, establece una distinción fundamental entre dos formas de capital social: el capital vinculante (<em>bonding social capital</em>) y el capital de puente (<em>bridging social capital</em>).</p>
-            
+
             <div class="bg-gradient-to-r from-teal-50 via-white to-indigo-50 p-5 rounded-2xl border-l-4 border-mvTeal shadow-sm">
                 <span class="text-xs font-display uppercase tracking-widest text-mvTeal font-bold block mb-1">Concepto Clave</span>
                 <p class="text-gray-800">El <strong>capital de puente</strong> se refiere a aquellas conexiones entre individuos de diversos trasfondos sociales, económicos o geográficos que no poseen lazos afectivos primarios pero que se unen en función de causas o intereses compartidos.</p>
@@ -556,7 +556,7 @@ const sectionsData = [
             </div>
 
             <p>Un estudio riguroso del fenómeno del apoyo comunitario digital debe mantener una perspectiva crítica que evite el determinismo tecnológico o la idealización del entorno virtual. <strong>Christian Fuchs (2017)</strong>, en <em>Social Media: A Critical Introduction</em>, examina las plataformas digitales desde la perspectiva de la economía política crítica de la comunicación, señalando que redes como Facebook operan bajo la lógica del capitalismo de datos y la extracción del trabajo digital no pagado (<em>digital labor</em>).</p>
-            
+
             <div class="bg-gradient-to-r from-rose-50 via-white to-amber-50 p-5 rounded-2xl border-l-4 border-mvRose shadow-sm">
                 <span class="text-xs font-display uppercase tracking-widest text-rose-700 font-bold block mb-1">Dualidad Constitutiva</span>
                 <p class="text-gray-800">Al analizar los grupos de apoyo vecinal bajo el enfoque de Fuchs, se evidencia una dualidad constitutiva: por un lado, los usuarios utilizan la infraestructura tecnológica para resolver carencias sociales y comunitarias reales; por otro lado, cada interacción, reacción y comentario generado durante una crisis o solicitud de auxilio produce métricas de <em>engagement</em> que son monetizadas por la plataforma a través de la venta de publicidad dirigida.</p>
@@ -586,7 +586,7 @@ const sectionsData = [
             </div>
 
             <p>Complementando la visión del capital social, la teoría del capital social en la estructura social formulada por <strong>James S. Coleman (1988)</strong> aporta conceptos clave para operativizar el análisis de la reciprocidad en redes de apoyo. Coleman sostiene que el capital social no radica de forma aislada en los individuos, sino en la estructura de las relaciones de confianza, las expectativas de reciprocidad y las normas de sanción social que regulan a un grupo.</p>
-            
+
             <div class="bg-gradient-to-r from-amber-50 via-white to-purple-50 p-5 rounded-2xl border-l-4 border-mvGold shadow-sm">
                 <span class="text-xs font-display uppercase tracking-widest text-amber-800 font-bold block mb-1">Norma Comunitaria</span>
                 <p class="text-gray-800">En las redes comunitarias de Facebook, las publicaciones de ayuda crean <strong>"obligaciones de reciprocidad diferida"</strong>: el usuario que comparte o apoya la causa de un vecino fortalece una norma comunitaria implícita según la cual, ante una eventualidad futura, él también podrá acudir a la red en busca de respaldo.</p>
@@ -605,7 +605,7 @@ const sectionsData = [
         preview: "Articulación de Castells, Putnam, Coleman y Fuchs para validar las observaciones empíricas en pantalla.",
         content: `
             <p class="text-mvNight font-medium">La articulación de estos cuatro enfoques académicos consolida la validez de nuestra investigación al demostrar que el apoyo comunitario en Facebook no constituye un fenómeno aislado ni contingente.</p>
-            
+
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 my-2">
                 <div class="p-4 rounded-xl bg-purple-50 border border-purple-200 text-sm">
                     <strong class="text-purple-950 block">Autocomunicación de masas</strong>
@@ -626,7 +626,7 @@ const sectionsData = [
             </div>
 
             <p>Por el contrario, se trata de una manifestación madura de la <strong>autocomunicación de masas (Castells)</strong> soportada en la movilización de <strong>capital social de puente (Putnam)</strong> y regida por <strong>normas de reciprocidad comunitaria (Coleman)</strong>, las cuales operan dentro de las restricciones estructurales y algorítmicas de la <strong>economía política digital (Fuchs)</strong>.</p>
-            
+
             <div class="bg-gradient-to-r from-mvNight via-mvTwilight to-mvIndigo text-white p-5 rounded-2xl border-l-4 border-mvMint shadow-md">
                 <p class="font-medium text-mvCream">Este marco teórico integrado valida las observaciones empíricas realizadas en pantallas y proporciona la base conceptual para el análisis cuantitativo y cualitativo de la investigación sobre el apoyo vecinal.</p>
             </div>
@@ -1117,7 +1117,7 @@ function openModal(index) {
     document.getElementById('nextBtn').style.visibility = index < sectionsData.length - 1 ? 'visible' : 'hidden';
 
     const modal = document.getElementById('detailModal');
-    
+
     modal.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
     modalBox.scrollTop = 0;
@@ -1138,7 +1138,7 @@ function navigateModal(direction) {
 function closeModal() {
     const modal = document.getElementById('detailModal');
     const box = document.getElementById('modalBox');
-    
+
     box.classList.remove('scale-100', 'opacity-100');
     box.classList.add('scale-95', 'opacity-0');
 
@@ -1162,6 +1162,32 @@ document.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowLeft') navigateModal(-1);
     }
 });
+
+function runMonumentValleyIntro() {
+    const splash = document.getElementById('mvSplash');
+    if (!splash) return;
+
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const holdDuration = prefersReduced ? 250 : 1850;
+    const fadeDuration = prefersReduced ? 200 : 950;
+
+    document.body.style.overflow = 'hidden';
+
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            splash.classList.add('is-active');
+        });
+    });
+
+    setTimeout(() => {
+        splash.classList.add('is-leaving');
+        document.body.style.overflow = 'auto';
+
+        setTimeout(() => {
+            splash.remove();
+        }, fadeDuration);
+    }, holdDuration);
+}
 
 const bgMusic = document.getElementById('bgMusic');
 const musicIcon = document.getElementById('musicIcon');
@@ -1204,5 +1230,6 @@ function startMusicAutomatically() {
 }
 
 renderCards();
+runMonumentValleyIntro();
 startMusicAutomatically();
 document.addEventListener('click', startMusicAutomatically, { once: true });
