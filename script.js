@@ -1,4 +1,4 @@
-// Configuración de paleta Monument Valley para Tailwind CSS
+
 tailwind.config = {
     theme: {
         extend: {
@@ -22,7 +22,7 @@ tailwind.config = {
     }
 };
 
-// Paletas cromáticas enriquecidas por categoría (para tarjetas e interior del modal)
+
 const categoryThemes = {
     "Presentación Institucional": {
         bar: "from-mvNight via-mvRose to-mvGold",
