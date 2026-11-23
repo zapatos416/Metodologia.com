@@ -202,7 +202,7 @@ const sectionsData = [
         title: "Mapa de Indagación",
         icon: "fa-diagram-project",
         hasThumbnail: true,
-        thumbSrc: "Identidad Universitaria Indagación Framework-2026-11-23-160420.jpg", //
+        thumbSrc: "Identidad Universitaria Indagación Framework-2026-11-23-014612.png",
         preview: "Identidad Universitaria Indagación Framework: estructura visual de articulación metodológica y conceptual.",
         content: `
             <div class="space-y-4">
@@ -215,8 +215,8 @@ const sectionsData = [
                     </p>
                 </div>
                 <div class="bg-gradient-to-br from-white via-teal-50/30 to-purple-50/40 p-3.5 rounded-2xl border-2 border-mvMint/50 shadow-md overflow-x-auto">
-                    <a href="Identidad Universitaria Indagación Framework-2026-11-23-160420.jpg" target="_blank" title="Abrir imagen en pantalla completa">
-                        <img src="Identidad Universitaria Indagación Framework-2026-11-23-160420.jpg" alt="Identidad Universitaria Indagación Framework" class="w-full h-auto rounded-xl hover:opacity-95 transition cursor-zoom-in shadow-sm">
+                    <a href="Identidad Universitaria Indagación Framework-2026-11-23-014612.png" target="_blank" title="Abrir imagen en pantalla completa">
+                        <img src="Identidad Universitaria Indagación Framework-2026-11-23-014612.png" alt="Identidad Universitaria Indagación Framework" class="w-full h-auto rounded-xl hover:opacity-95 transition cursor-zoom-in shadow-sm">
                     </a>
                 </div>
                 <div class="text-center">
@@ -954,7 +954,7 @@ const sectionsData = [
                                 <td>Por su parte, desde una perspectiva crítica, las limitaciones encontradas señalan que las plataformas (Fuchs, 2017) operan bajo la extracción de datos, condicionando la visibilidad del apoyo a métricas algorítmicas.</td>
                             </tr>
                             <tr>
-                                <td><span class="px-2.5 py-1 rounded-lg bg-pink-100 text-pink-950 font-bold text-xs inline-block">Proyección Futura</span></td>
+                                <td><span class="px-2.5 py-1 rounded-lg bg-pink-100 text-rose-950 font-bold text-xs inline-block">Proyección Futura</span></td>
                                 <td>Recomendaciones, líneas futuras e impacto práctico.</td>
                                 <td>Se sugiere profundizar en futuras investigaciones sobre el impacto de la moderación en grupos locales y la alfabetización digital para evitar desinformación en crisis comunitarias.</td>
                             </tr>
