@@ -22,61 +22,97 @@ tailwind.config = {
     }
 };
 
-// Paletas cromáticas por categoría para darle vida y color a cada pestaña
+// Paletas cromáticas enriquecidas por categoría (para tarjetas e interior del modal)
 const categoryThemes = {
     "Presentación Institucional": {
         bar: "from-mvNight via-mvRose to-mvGold",
-        badge: "bg-amber-100/80 text-mvNight border border-amber-300/60",
+        badge: "bg-amber-100/90 text-mvNight border border-amber-300/80",
         iconBox: "from-mvNight via-mvTwilight to-mvRose",
-        glow: "bg-mvGold"
+        glow: "bg-mvGold",
+        cardBg: "bg-gradient-to-br from-[#fffdf8] via-[#fdf3eb] to-[#fae6ec] border border-amber-300/70",
+        cardOrb: "bg-mvGold/25",
+        modalBg: "from-[#fffdf9] via-[#fcf5ef] to-[#f8e9f0]",
+        headerBg: "bg-gradient-to-r from-amber-50/90 via-white/95 to-rose-50/90"
     },
     "Apertura del Proyecto": {
         bar: "from-mvTwilight via-mvRose to-mvPeach",
-        badge: "bg-rose-100/80 text-mvTwilight border border-rose-200",
+        badge: "bg-rose-100/90 text-mvTwilight border border-rose-300/80",
         iconBox: "from-mvTwilight to-mvRose",
-        glow: "bg-mvRose"
+        glow: "bg-mvRose",
+        cardBg: "bg-gradient-to-br from-[#fffbfd] via-[#fceff4] to-[#f7e7f5] border border-rose-200/80",
+        cardOrb: "bg-mvRose/25",
+        modalBg: "from-[#fffbfd] via-[#fdf1f6] to-[#f5eaf8]",
+        headerBg: "bg-gradient-to-r from-rose-50/90 via-white/95 to-purple-50/90"
     },
     "Esquema Visual de Investigación": {
         bar: "from-mvNight via-mvTeal to-mvMint",
-        badge: "bg-teal-100/80 text-teal-900 border border-teal-200",
+        badge: "bg-teal-100/90 text-teal-950 border border-teal-300/80",
         iconBox: "from-mvNight to-mvTeal",
-        glow: "bg-mvMint"
+        glow: "bg-mvMint",
+        cardBg: "bg-gradient-to-br from-[#f8fefe] via-[#eaf8f7] to-[#e4f2fb] border border-teal-200/80",
+        cardOrb: "bg-mvMint/30",
+        modalBg: "from-[#f8fefe] via-[#edf9f8] to-[#e8f3fb]",
+        headerBg: "bg-gradient-to-r from-teal-50/90 via-white/95 to-cyan-50/90"
     },
     "Mapeo Empírico y Estructura Funcional": {
         bar: "from-mvTwilight via-mvCoral to-mvPeach",
-        badge: "bg-orange-100/80 text-rose-900 border border-orange-200",
+        badge: "bg-orange-100/90 text-rose-950 border border-orange-300/80",
         iconBox: "from-mvRose to-mvCoral",
-        glow: "bg-mvPeach"
+        glow: "bg-mvPeach",
+        cardBg: "bg-gradient-to-br from-[#fffcfa] via-[#fef1eb] to-[#fce8ee] border border-orange-200/80",
+        cardOrb: "bg-mvCoral/20",
+        modalBg: "from-[#fffcfa] via-[#fef2ec] to-[#fbeaf0]",
+        headerBg: "bg-gradient-to-r from-orange-50/90 via-white/95 to-rose-50/90"
     },
     "Aplicación del Método Científico": {
         bar: "from-mvNight via-mvIndigo to-mvMint",
-        badge: "bg-cyan-100/80 text-cyan-950 border border-cyan-200",
+        badge: "bg-cyan-100/90 text-cyan-950 border border-cyan-300/80",
         iconBox: "from-mvIndigo to-mvTeal",
-        glow: "bg-mvMint"
+        glow: "bg-mvMint",
+        cardBg: "bg-gradient-to-br from-[#f9fbff] via-[#edf3fc] to-[#e8f7f8] border border-indigo-200/80",
+        cardOrb: "bg-indigo-400/20",
+        modalBg: "from-[#f9fbff] via-[#eef4fd] to-[#e9f8f9]",
+        headerBg: "bg-gradient-to-r from-indigo-50/90 via-white/95 to-cyan-50/90"
     },
     "Marco Teórico y Sustentación Académica": {
         bar: "from-mvNight via-purple-700 to-mvRose",
-        badge: "bg-purple-100/80 text-purple-950 border border-purple-200",
+        badge: "bg-purple-100/90 text-purple-950 border border-purple-300/80",
         iconBox: "from-mvNight via-mvIndigo to-purple-600",
-        glow: "bg-purple-400"
+        glow: "bg-purple-400",
+        cardBg: "bg-gradient-to-br from-[#fcfaff] via-[#f4edfc] to-[#f9ebf5] border border-purple-200/80",
+        cardOrb: "bg-purple-400/20",
+        modalBg: "from-[#fcfaff] via-[#f5effd] to-[#faedf6]",
+        headerBg: "bg-gradient-to-r from-purple-50/90 via-white/95 to-pink-50/90"
     },
     "Justificación Teórica, Práctica y Social": {
         bar: "from-mvTeal via-mvMint to-mvPeach",
-        badge: "bg-emerald-100/80 text-emerald-950 border border-emerald-200",
+        badge: "bg-emerald-100/90 text-emerald-950 border border-emerald-300/80",
         iconBox: "from-mvTeal to-emerald-500",
-        glow: "bg-mvMint"
+        glow: "bg-mvMint",
+        cardBg: "bg-gradient-to-br from-[#f8fefb] via-[#eaf9f2] to-[#ebf6fb] border border-emerald-200/80",
+        cardOrb: "bg-emerald-400/20",
+        modalBg: "from-[#f8fefb] via-[#ecf9f3] to-[#edf7fc]",
+        headerBg: "bg-gradient-to-r from-emerald-50/90 via-white/95 to-teal-50/90"
     },
     "Planteamiento de Hipótesis": {
         bar: "from-mvRose via-mvCoral to-mvGold",
-        badge: "bg-pink-100/80 text-pink-950 border border-pink-200",
+        badge: "bg-pink-100/90 text-pink-950 border border-pink-300/80",
         iconBox: "from-mvCoral to-mvRose",
-        glow: "bg-mvCoral"
+        glow: "bg-mvCoral",
+        cardBg: "bg-gradient-to-br from-[#fffafb] via-[#fdedf2] to-[#fef3e8] border border-pink-200/80",
+        cardOrb: "bg-mvRose/25",
+        modalBg: "from-[#fffafb] via-[#feeff4] to-[#fef5ec]",
+        headerBg: "bg-gradient-to-r from-pink-50/90 via-white/95 to-amber-50/90"
     },
     "Sustento Documental y Síntesis": {
         bar: "from-mvNight via-mvTwilight to-mvMint",
-        badge: "bg-indigo-100/80 text-indigo-950 border border-indigo-200",
+        badge: "bg-indigo-100/90 text-indigo-950 border border-indigo-300/80",
         iconBox: "from-mvNight to-mvTwilight",
-        glow: "bg-mvMint"
+        glow: "bg-mvMint",
+        cardBg: "bg-gradient-to-br from-[#fafaff] via-[#efeffb] to-[#eaf6f8] border border-indigo-200/80",
+        cardOrb: "bg-mvTwilight/20",
+        modalBg: "from-[#fafaff] via-[#f1f1fc] to-[#ecf7f9]",
+        headerBg: "bg-gradient-to-r from-indigo-50/90 via-white/95 to-teal-50/90"
     }
 };
 
@@ -150,7 +186,7 @@ const sectionsData = [
                 </p>
             </div>
 
-            <p class="bg-white/80 p-5 rounded-2xl border border-gray-100 shadow-sm">
+            <p class="bg-white/90 p-5 rounded-2xl border border-rose-100 shadow-sm">
                 En contextos urbanos y locales, la plataforma digital <span class="px-2 py-0.5 rounded-md bg-blue-100/80 text-blue-900 font-bold">Facebook</span> opera como un espacio catalizador donde las necesidades emergentes del mundo físico —tales como crisis de salud, alertas viales, búsqueda de personas desaparecidas o rescate de mascotas— encuentran una respuesta rápida y coordinada mediante la solidaridad de los propios habitantes.
             </p>
 
@@ -934,30 +970,47 @@ const sectionsData = [
 
 let currentModalIndex = 0;
 
+function getTheme(category) {
+    return categoryThemes[category] || {
+        bar: "from-mvNight via-mvRose to-mvMint",
+        badge: "bg-mvTwilight/10 text-mvTwilight",
+        iconBox: "from-mvTwilight to-mvNight",
+        glow: "bg-mvRose",
+        cardBg: "bg-gradient-to-br from-white via-[#faf7f5] to-[#f4eef8] border border-white/60",
+        cardOrb: "bg-mvRose/20",
+        modalBg: "from-white via-[#faf7f5] to-[#f4eef8]",
+        headerBg: "bg-white/90"
+    };
+}
+
 function renderCards() {
     const grid = document.getElementById('cardsGrid');
     grid.innerHTML = sectionsData.map((item, index) => {
+        const theme = getTheme(item.category);
+
         if (item.isCover) {
             return `
-                <div onclick="openModal(${index})" class="mv-card rounded-2xl p-6 cursor-pointer flex flex-col justify-between group sm:col-span-2 lg:col-span-1 border-2 border-mvPeach/50">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="text-[10px] font-display uppercase tracking-[0.2em] text-mvTwilight font-bold">${item.category}</span>
-                            <span class="w-7 h-7 rounded-full bg-mvNight/5 group-hover:bg-mvNight group-hover:text-white flex items-center justify-center transition text-xs">
+                <div onclick="openModal(${index})" class="mv-card ${theme.cardBg} rounded-2xl p-6 cursor-pointer flex flex-col justify-between group sm:col-span-2 lg:col-span-1">
+                    <div class="h-1.5 w-full bg-gradient-to-r ${theme.bar} absolute top-0 left-0"></div>
+                    <div class="absolute -right-8 -bottom-8 w-28 h-28 rounded-full ${theme.cardOrb} blur-xl pointer-events-none"></div>
+                    <div class="relative z-10">
+                        <div class="flex items-center justify-between gap-2 mb-4">
+                            <span class="text-[10px] font-display uppercase tracking-[0.16em] px-2.5 py-0.5 rounded-full font-bold ${theme.badge}">${item.category}</span>
+                            <span class="w-8 h-8 rounded-xl bg-gradient-to-br ${theme.iconBox} text-white flex items-center justify-center shadow-sm shrink-0 text-xs group-hover:scale-110 transition">
                                 <i class="fa-solid fa-expand"></i>
                             </span>
                         </div>
-                        <div class="bg-white rounded-xl p-4 mb-4 flex items-center justify-center border border-gray-100 shadow-sm h-28">
+                        <div class="bg-white/95 rounded-xl p-4 mb-4 flex items-center justify-center border border-amber-200/70 shadow-sm h-28">
                             <img src="${item.coverImage}" alt="Logo Universidad del Sur" class="h-20 object-contain group-hover:scale-105 transition duration-500">
                         </div>
                         <h3 class="text-base font-bold text-mvNight uppercase tracking-wider mb-2 group-hover:text-mvTwilight transition">
                             ${item.title}
                         </h3>
-                        <p class="text-xs text-gray-600 leading-relaxed">
+                        <p class="text-xs text-gray-700 leading-relaxed">
                             ${item.preview}
                         </p>
                     </div>
-                    <div class="mt-5 pt-3 border-t border-gray-200/70 flex items-center justify-between text-[11px] font-display uppercase tracking-widest text-mvTwilight font-semibold">
+                    <div class="relative z-10 mt-5 pt-3 border-t border-amber-900/10 flex items-center justify-between text-[11px] font-display uppercase tracking-widest text-mvTwilight font-bold">
                         <span>Ver integrantes</span>
                         <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
                     </div>
@@ -967,25 +1020,27 @@ function renderCards() {
 
         if (item.hasThumbnail) {
             return `
-                <div onclick="openModal(${index})" class="mv-card rounded-2xl p-6 cursor-pointer flex flex-col justify-between group">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="text-[10px] font-display uppercase tracking-[0.2em] text-mvTwilight font-bold">${item.category}</span>
-                            <span class="w-7 h-7 rounded-full bg-mvNight/5 group-hover:bg-mvNight group-hover:text-white flex items-center justify-center transition text-xs">
+                <div onclick="openModal(${index})" class="mv-card ${theme.cardBg} rounded-2xl p-6 cursor-pointer flex flex-col justify-between group">
+                    <div class="h-1.5 w-full bg-gradient-to-r ${theme.bar} absolute top-0 left-0"></div>
+                    <div class="absolute -right-8 -bottom-8 w-28 h-28 rounded-full ${theme.cardOrb} blur-xl pointer-events-none"></div>
+                    <div class="relative z-10">
+                        <div class="flex items-center justify-between gap-2 mb-4">
+                            <span class="text-[10px] font-display uppercase tracking-[0.16em] px-2.5 py-0.5 rounded-full font-bold ${theme.badge}">${item.category}</span>
+                            <span class="w-8 h-8 rounded-xl bg-gradient-to-br ${theme.iconBox} text-white flex items-center justify-center shadow-sm shrink-0 text-xs group-hover:scale-110 transition">
                                 <i class="fa-solid ${item.icon}"></i>
                             </span>
                         </div>
-                        <div class="rounded-xl overflow-hidden mb-4 border border-gray-200 h-28 bg-white">
+                        <div class="rounded-xl overflow-hidden mb-4 border border-teal-200/80 h-28 bg-white shadow-sm">
                             <img src="${item.thumbSrc}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         </div>
                         <h3 class="text-base font-bold text-mvNight uppercase tracking-wider mb-2 group-hover:text-mvTwilight transition">
                             ${item.title}
                         </h3>
-                        <p class="text-xs text-gray-600 leading-relaxed">
+                        <p class="text-xs text-gray-700 leading-relaxed">
                             ${item.preview}
                         </p>
                     </div>
-                    <div class="mt-5 pt-3 border-t border-gray-200/70 flex items-center justify-between text-[11px] font-display uppercase tracking-widest text-mvTwilight font-semibold">
+                    <div class="relative z-10 mt-5 pt-3 border-t border-teal-900/10 flex items-center justify-between text-[11px] font-display uppercase tracking-widest text-teal-900 font-bold">
                         <span>Explorar esquema</span>
                         <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
                     </div>
@@ -994,22 +1049,24 @@ function renderCards() {
         }
 
         return `
-            <div onclick="openModal(${index})" class="mv-card rounded-2xl p-6 cursor-pointer flex flex-col justify-between group">
-                <div>
-                    <div class="flex items-center justify-between mb-5">
-                        <span class="text-[10px] font-display uppercase tracking-[0.18em] text-mvTwilight/80 font-semibold">${item.category}</span>
-                        <span class="w-8 h-8 rounded-full bg-mvNight/5 group-hover:bg-mvTwilight group-hover:text-white text-mvTwilight flex items-center justify-center transition duration-300 text-xs">
+            <div onclick="openModal(${index})" class="mv-card ${theme.cardBg} rounded-2xl p-6 cursor-pointer flex flex-col justify-between group">
+                <div class="h-1.5 w-full bg-gradient-to-r ${theme.bar} absolute top-0 left-0"></div>
+                <div class="absolute -right-8 -bottom-8 w-28 h-28 rounded-full ${theme.cardOrb} blur-xl pointer-events-none"></div>
+                <div class="relative z-10">
+                    <div class="flex items-center justify-between gap-2 mb-4">
+                        <span class="text-[10px] font-display uppercase tracking-[0.14em] px-2.5 py-0.5 rounded-full font-bold ${theme.badge}">${item.category}</span>
+                        <span class="w-8 h-8 rounded-xl bg-gradient-to-br ${theme.iconBox} text-white flex items-center justify-center shadow-sm shrink-0 text-xs group-hover:scale-110 transition duration-300">
                             <i class="fa-solid ${item.icon}"></i>
                         </span>
                     </div>
                     <h3 class="text-sm sm:text-base font-bold text-mvNight uppercase tracking-wider leading-snug mb-3 group-hover:text-mvTwilight transition">
                         ${item.title}
                     </h3>
-                    <p class="text-xs sm:text-sm text-gray-600 leading-relaxed font-normal">
+                    <p class="text-xs sm:text-sm text-gray-700 leading-relaxed font-normal">
                         ${item.preview}
                     </p>
                 </div>
-                <div class="mt-6 pt-3 border-t border-gray-200/70 flex items-center justify-between text-[11px] font-display uppercase tracking-widest text-mvTwilight font-semibold">
+                <div class="relative z-10 mt-6 pt-3 border-t border-mvNight/10 flex items-center justify-between text-[11px] font-display uppercase tracking-widest text-mvTwilight font-bold">
                     <span>Abrir pestaña</span>
                     <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
                 </div>
@@ -1021,12 +1078,13 @@ function renderCards() {
 function openModal(index) {
     currentModalIndex = index;
     const item = sectionsData[index];
-    const theme = categoryThemes[item.category] || {
-        bar: "from-mvNight via-mvRose to-mvMint",
-        badge: "bg-mvTwilight/10 text-mvTwilight",
-        iconBox: "from-mvTwilight to-mvNight",
-        glow: "bg-mvRose"
-    };
+    const theme = getTheme(item.category);
+
+    const modalBox = document.getElementById('modalBox');
+    modalBox.className = `bg-gradient-to-b ${theme.modalBg} rounded-3xl shadow-2xl max-w-4xl w-full max-h-[88vh] overflow-y-auto transform transition-all duration-300 scale-95 opacity-0 border border-white/80 relative`;
+
+    const modalHeader = document.getElementById('modalHeader');
+    modalHeader.className = `sticky top-0 ${theme.headerBg} backdrop-blur-lg px-6 sm:px-10 py-5 border-b border-purple-200/60 flex items-center justify-between z-20 overflow-hidden`;
 
     const topBar = document.getElementById('modalTopBar');
     topBar.className = `h-2.5 w-full bg-gradient-to-r ${theme.bar}`;
@@ -1043,24 +1101,30 @@ function openModal(index) {
     document.getElementById('modalHeaderIcon').className = `fa-solid ${item.icon || 'fa-compass'} text-lg`;
 
     const glowEl = document.getElementById('modalHeaderGlow');
-    glowEl.className = `absolute -right-10 -top-10 w-40 h-40 rounded-full opacity-25 pointer-events-none blur-xl ${theme.glow}`;
+    glowEl.className = `absolute -right-10 -top-10 w-40 h-40 rounded-full opacity-30 pointer-events-none blur-xl ${theme.glow}`;
 
     const bodyEl = document.getElementById('modalBody');
-    bodyEl.innerHTML = `<div class="modal-content-animate space-y-5">${item.content}</div>`;
+    bodyEl.innerHTML = `
+        <div class="modal-content-animate space-y-5">
+            ${item.content}
+            <div class="pt-3 flex items-center justify-center">
+                <span class="h-1.5 w-24 rounded-full bg-gradient-to-r ${theme.bar} opacity-75"></span>
+            </div>
+        </div>
+    `;
 
     document.getElementById('prevBtn').style.visibility = index > 0 ? 'visible' : 'hidden';
     document.getElementById('nextBtn').style.visibility = index < sectionsData.length - 1 ? 'visible' : 'hidden';
 
     const modal = document.getElementById('detailModal');
-    const box = document.getElementById('modalBox');
     
     modal.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
-    box.scrollTop = 0;
+    modalBox.scrollTop = 0;
 
     setTimeout(() => {
-        box.classList.remove('scale-95', 'opacity-0');
-        box.classList.add('scale-100', 'opacity-100');
+        modalBox.classList.remove('scale-95', 'opacity-0');
+        modalBox.classList.add('scale-100', 'opacity-100');
     }, 15);
 }
 
