@@ -1,4 +1,3 @@
-
 tailwind.config = {
     theme: {
         extend: {
@@ -21,7 +20,6 @@ tailwind.config = {
         }
     }
 };
-
 
 const categoryThemes = {
     "Presentación Institucional": {
@@ -204,7 +202,7 @@ const sectionsData = [
         title: "Mapa de Indagación",
         icon: "fa-diagram-project",
         hasThumbnail: true,
-        thumbSrc: "Identidad Universitaria Indagación Framework-2026-11-23-014612.jpg",
+        thumbSrc: "Identidad Universitaria Indagación Framework-2026-11-23-160420.jpg", //
         preview: "Identidad Universitaria Indagación Framework: estructura visual de articulación metodológica y conceptual.",
         content: `
             <div class="space-y-4">
@@ -217,8 +215,8 @@ const sectionsData = [
                     </p>
                 </div>
                 <div class="bg-gradient-to-br from-white via-teal-50/30 to-purple-50/40 p-3.5 rounded-2xl border-2 border-mvMint/50 shadow-md overflow-x-auto">
-                    <a href="Identidad Universitaria Indagación Framework-2026-11-23-014612.jpg" target="_blank" title="Abrir imagen en pantalla completa">
-                        <img src="Identidad Universitaria Indagación Framework-2026-11-23-014612.jpg" alt="Identidad Universitaria Indagación Framework" class="w-full h-auto rounded-xl hover:opacity-95 transition cursor-zoom-in shadow-sm">
+                    <a href="Identidad Universitaria Indagación Framework-2026-11-23-160420.jpg" target="_blank" title="Abrir imagen en pantalla completa">
+                        <img src="Identidad Universitaria Indagación Framework-2026-11-23-160420.jpg" alt="Identidad Universitaria Indagación Framework" class="w-full h-auto rounded-xl hover:opacity-95 transition cursor-zoom-in shadow-sm">
                     </a>
                 </div>
                 <div class="text-center">
