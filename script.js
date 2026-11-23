@@ -985,6 +985,8 @@ function getTheme(category) {
 
 function renderCards() {
     const grid = document.getElementById('cardsGrid');
+    if (!grid) return;
+
     grid.innerHTML = sectionsData.map((item, index) => {
         const theme = getTheme(item.category);
 
@@ -1117,7 +1119,6 @@ function openModal(index) {
     document.getElementById('nextBtn').style.visibility = index < sectionsData.length - 1 ? 'visible' : 'hidden';
 
     const modal = document.getElementById('detailModal');
-
     modal.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
     modalBox.scrollTop = 0;
@@ -1163,7 +1164,7 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Limpieza limpia del splash una vez que termina su animación CSS (1.9s delay + 0.9s fade)
+// Limpieza limpia del splash una vez que termina su animación CSS
 const splashEl = document.getElementById('mvSplash');
 if (splashEl) {
     setTimeout(() => {
@@ -1171,22 +1172,31 @@ if (splashEl) {
     }, 2900);
 }
 
+// Reproducción automática de música ambiental con desbloqueo en el primer gesto
 const bgMusic = document.getElementById('bgMusic');
 const musicIcon = document.getElementById('musicIcon');
 const musicStatus = document.getElementById('musicStatus');
 let isPlaying = false;
 
-bgMusic.addEventListener('ended', function() {
-    this.currentTime = 0;
-    this.play();
-}, false);
+if (bgMusic) {
+    bgMusic.addEventListener('ended', function () {
+        this.currentTime = 0;
+        this.play().catch(() => {});
+    }, false);
+}
 
-function updateMusicUI(playing) {
+function updateMusicUI(playing, needsGesture = false) {
     isPlaying = playing;
-    if (playing) {
+    if (!musicIcon || !musicStatus) return;
+
+    if (playing && bgMusic && !bgMusic.muted) {
         musicIcon.classList.remove('fa-play');
         musicIcon.classList.add('fa-pause');
         musicStatus.innerText = 'Reproduciendo en bucle';
+    } else if (needsGesture) {
+        musicIcon.classList.remove('fa-pause');
+        musicIcon.classList.add('fa-play');
+        musicStatus.innerText = 'Toca para activar sonido';
     } else {
         musicIcon.classList.remove('fa-pause');
         musicIcon.classList.add('fa-play');
@@ -1195,22 +1205,60 @@ function updateMusicUI(playing) {
 }
 
 function toggleMusic() {
-    if (bgMusic.paused) {
-        bgMusic.play().then(() => updateMusicUI(true)).catch(() => {});
+    if (!bgMusic) return;
+
+    if (bgMusic.paused || bgMusic.muted) {
+        bgMusic.muted = false;
+        bgMusic.volume = 0.65;
+        bgMusic.play().then(() => {
+            updateMusicUI(true, false);
+        }).catch(() => {
+            updateMusicUI(false, true);
+        });
     } else {
         bgMusic.pause();
-        updateMusicUI(false);
+        updateMusicUI(false, false);
     }
 }
 
-function startMusicAutomatically() {
+function unlockAndPlayMusic() {
+    if (!bgMusic) return;
+
+    bgMusic.muted = false;
     bgMusic.volume = 0.65;
     bgMusic.play().then(() => {
-        updateMusicUI(true);
-        document.removeEventListener('click', startMusicAutomatically);
-    }).catch(() => {});
+        updateMusicUI(true, false);
+        ['pointerdown', 'touchstart', 'keydown'].forEach((evt) => {
+            document.removeEventListener(evt, unlockAndPlayMusic);
+        });
+    }).catch(() => {
+        updateMusicUI(false, true);
+    });
+}
+
+function initAutoMusic() {
+    if (!bgMusic) return;
+
+    bgMusic.volume = 0.65;
+    bgMusic.muted = true;
+    bgMusic.play().then(() => {
+        setTimeout(() => {
+            bgMusic.muted = false;
+            bgMusic.play().then(() => {
+                updateMusicUI(true, false);
+            }).catch(() => {
+                bgMusic.muted = true;
+                updateMusicUI(false, true);
+            });
+        }, 400);
+    }).catch(() => {
+        bgMusic.muted = false;
+        updateMusicUI(false, true);
+    });
 }
 
 renderCards();
-startMusicAutomatically();
-document.addEventListener('click', startMusicAutomatically, { once: true });
+initAutoMusic();
+['pointerdown', 'touchstart', 'keydown'].forEach((evt) => {
+    document.addEventListener(evt, unlockAndPlayMusic, { passive: true });
+});
