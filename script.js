@@ -1033,4 +1033,112 @@ function openModal(index) {
 
     const subtitleEl = document.getElementById('modalSubtitle');
     subtitleEl.className = `text-[10px] font-display uppercase tracking-[0.18em] px-3 py-0.5 rounded-full font-bold ${theme.badge}`;
-    subtitleEl.
+    subtitleEl.innerText = item.category;
+
+    document.getElementById('modalCounter').innerText = `${index + 1} / ${sectionsData.length}`;
+    document.getElementById('modalTitle').innerText = item.title;
+
+    const iconBox = document.getElementById('modalHeaderIconBox');
+    iconBox.className = `hidden sm:flex w-12 h-12 rounded-2xl bg-gradient-to-br ${theme.iconBox} text-white items-center justify-center shadow-md shrink-0`;
+    document.getElementById('modalHeaderIcon').className = `fa-solid ${item.icon || 'fa-compass'} text-lg`;
+
+    const glowEl = document.getElementById('modalHeaderGlow');
+    glowEl.className = `absolute -right-10 -top-10 w-40 h-40 rounded-full opacity-25 pointer-events-none blur-xl ${theme.glow}`;
+
+    const bodyEl = document.getElementById('modalBody');
+    bodyEl.innerHTML = `<div class="modal-content-animate space-y-5">${item.content}</div>`;
+
+    document.getElementById('prevBtn').style.visibility = index > 0 ? 'visible' : 'hidden';
+    document.getElementById('nextBtn').style.visibility = index < sectionsData.length - 1 ? 'visible' : 'hidden';
+
+    const modal = document.getElementById('detailModal');
+    const box = document.getElementById('modalBox');
+    
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    box.scrollTop = 0;
+
+    setTimeout(() => {
+        box.classList.remove('scale-95', 'opacity-0');
+        box.classList.add('scale-100', 'opacity-100');
+    }, 15);
+}
+
+function navigateModal(direction) {
+    const newIndex = currentModalIndex + direction;
+    if (newIndex >= 0 && newIndex < sectionsData.length) {
+        openModal(newIndex);
+    }
+}
+
+function closeModal() {
+    const modal = document.getElementById('detailModal');
+    const box = document.getElementById('modalBox');
+    
+    box.classList.remove('scale-100', 'opacity-100');
+    box.classList.add('scale-95', 'opacity-0');
+
+    setTimeout(() => {
+        modal.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+    }, 220);
+}
+
+function closeModalOnBackdrop(event) {
+    if (event.target.id === 'detailModal') {
+        closeModal();
+    }
+}
+
+document.addEventListener('keydown', (e) => {
+    const modal = document.getElementById('detailModal');
+    if (!modal.classList.contains('hidden')) {
+        if (e.key === 'Escape') closeModal();
+        if (e.key === 'ArrowRight') navigateModal(1);
+        if (e.key === 'ArrowLeft') navigateModal(-1);
+    }
+});
+
+const bgMusic = document.getElementById('bgMusic');
+const musicIcon = document.getElementById('musicIcon');
+const musicStatus = document.getElementById('musicStatus');
+let isPlaying = false;
+
+bgMusic.addEventListener('ended', function() {
+    this.currentTime = 0;
+    this.play();
+}, false);
+
+function updateMusicUI(playing) {
+    isPlaying = playing;
+    if (playing) {
+        musicIcon.classList.remove('fa-play');
+        musicIcon.classList.add('fa-pause');
+        musicStatus.innerText = 'Reproduciendo en bucle';
+    } else {
+        musicIcon.classList.remove('fa-pause');
+        musicIcon.classList.add('fa-play');
+        musicStatus.innerText = 'Música en pausa';
+    }
+}
+
+function toggleMusic() {
+    if (bgMusic.paused) {
+        bgMusic.play().then(() => updateMusicUI(true)).catch(() => {});
+    } else {
+        bgMusic.pause();
+        updateMusicUI(false);
+    }
+}
+
+function startMusicAutomatically() {
+    bgMusic.volume = 0.65;
+    bgMusic.play().then(() => {
+        updateMusicUI(true);
+        document.removeEventListener('click', startMusicAutomatically);
+    }).catch(() => {});
+}
+
+renderCards();
+startMusicAutomatically();
+document.addEventListener('click', startMusicAutomatically, { once: true });
