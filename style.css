@@ -18,7 +18,7 @@ h1, h2, h3, .mv-title {
     letter-spacing: 0.14em;
 }
 
-/* Pantalla de entrada estilo Monument Valley (animación CSS autónoma y fluida) */
+
 .mv-splash {
     position: fixed;
     inset: 0;
@@ -159,7 +159,7 @@ h1, h2, h3, .mv-title {
     z-index: 0;
 }
 
-/* Tarjetas Minimalistas Arquitectónicas con mayor riqueza cromática */
+
 .mv-card {
     backdrop-filter: blur(14px);
     box-shadow: 0 14px 32px -10px rgba(28, 25, 54, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.85);
@@ -178,7 +178,7 @@ h1, h2, h3, .mv-title {
 ::-webkit-scrollbar-track { background: #1c1936; }
 ::-webkit-scrollbar-thumb { background: #e298ab; border-radius: 4px; }
 
-/* Tablas dentro del modal */
+
 .mv-table th {
     background: linear-gradient(90deg, #1c1936 0%, #362b59 100%);
     color: #faf7f5;
@@ -203,7 +203,7 @@ h1, h2, h3, .mv-title {
     background-color: #f1eaf8;
 }
 
-/* Animación suave del contenido interno al cambiar pestaña */
+
 @keyframes fadeSlideUp {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
