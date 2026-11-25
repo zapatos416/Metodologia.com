@@ -111,6 +111,16 @@ const categoryThemes = {
         cardOrb: "bg-mvTwilight/20",
         modalBg: "from-[#fafaff] via-[#f1f1fc] to-[#ecf7f9]",
         headerBg: "bg-gradient-to-r from-indigo-50/90 via-white/95 to-teal-50/90"
+    },
+    "Instrumento de Recolección": {
+        bar: "from-mvTeal via-mvMint to-mvGold",
+        badge: "bg-teal-100/90 text-teal-950 border border-teal-300/80",
+        iconBox: "from-mvTeal to-mvMint",
+        glow: "bg-mvMint",
+        cardBg: "bg-gradient-to-br from-[#f8fefe] via-[#eaf8f7] to-[#fff9ec] border border-teal-300/80",
+        cardOrb: "bg-mvMint/30",
+        modalBg: "from-[#f8fefe] via-[#edf9f8] to-[#fffaf0]",
+        headerBg: "bg-gradient-to-r from-teal-50/90 via-white/95 to-amber-50/90"
     }
 };
 
@@ -963,6 +973,14 @@ const sectionsData = [
                 </div>
             </div>
         `
+    },
+    {
+        id: 27,
+        category: "Instrumento de Recolección",
+        title: "Encuesta / Formulario de Investigación",
+        icon: "fa-clipboard-question",
+        externalUrl: "https://docs.google.com/forms/d/e/1FAIpQLScdbxtGyDbSamsxIccrZ7RNLmKZdGQDBWfvHNRZmAxbWxMHsA/viewform?usp=sharing&ouid=114441486537992592062",
+        preview: "Accede directamente al formulario de la investigación para registrar respuestas y participar en el estudio."
     }
 ];
 
@@ -1045,6 +1063,33 @@ function renderCards() {
                         <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
                     </div>
                 </div>
+            `;
+        }
+
+        if (item.externalUrl) {
+            return `
+                <a href="${item.externalUrl}" target="_blank" rel="noopener noreferrer" class="mv-card ${theme.cardBg} rounded-2xl p-6 cursor-pointer flex flex-col justify-between group block">
+                    <div class="h-1.5 w-full bg-gradient-to-r ${theme.bar} absolute top-0 left-0"></div>
+                    <div class="absolute -right-8 -bottom-8 w-28 h-28 rounded-full ${theme.cardOrb} blur-xl pointer-events-none"></div>
+                    <div class="relative z-10">
+                        <div class="flex items-center justify-between gap-2 mb-4">
+                            <span class="text-[10px] font-display uppercase tracking-[0.14em] px-2.5 py-0.5 rounded-full font-bold ${theme.badge}">${item.category}</span>
+                            <span class="w-8 h-8 rounded-xl bg-gradient-to-br ${theme.iconBox} text-white flex items-center justify-center shadow-sm shrink-0 text-xs group-hover:scale-110 transition duration-300">
+                                <i class="fa-solid ${item.icon}"></i>
+                            </span>
+                        </div>
+                        <h3 class="text-sm sm:text-base font-bold text-mvNight uppercase tracking-wider leading-snug mb-3 group-hover:text-mvTwilight transition">
+                            ${item.title}
+                        </h3>
+                        <p class="text-xs sm:text-sm text-gray-700 leading-relaxed font-normal">
+                            ${item.preview}
+                        </p>
+                    </div>
+                    <div class="relative z-10 mt-6 pt-3 border-t border-mvNight/10 flex items-center justify-between text-[11px] font-display uppercase tracking-widest text-mvTwilight font-bold">
+                        <span>Ir al formulario</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square group-hover:translate-x-1 transition"></i>
+                    </div>
+                </a>
             `;
         }
 
